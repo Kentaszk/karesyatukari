@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>カレシャツ。- Sky Blue Idol Group</title>
+<title>カレシャツ。- Girls Bar</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -259,6 +260,7 @@
   <nav>
     <a href="#">CONCEPT</a>
     <a href="#">CAST</a>
+    <a href="#">SCHEDULE</a>
     <a href="#">EVENT</a>
     <a href="#">RANKING</a>
     <a href="#">RECRUIT</a>
@@ -271,23 +273,22 @@
     <div class="bubble"></div><div class="bubble"></div>
   </div>
   <h1 class="hero-name">カレシャツ。</h1>
-  <p class="hero-sub">カレシャツ。Official Fan Site</p>
   <div class="hero-btns">
-    <a href="#" class="btn-primary">CAST を見る</a>
-    <a href="#" class="btn-outline">NEWS</a>
+    <a href="#" class="btn-primary">キャストを見る</a>
+    <a href="#" class="btn-outline">出勤スケジュール</a>
   </div>
 </section>
 
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">✦ 2026.05.24 夏のワンマンライブ 開催決定！</span>
-    <span class="ticker-item">✦ 2026.05.10 新曲「空色の約束」 MV 公開中</span>
-    <span class="ticker-item">✦ 2026.04.28 「彼シャツ」フォトブック 発売！</span>
-    <span class="ticker-item">✦ 2026.04.01 メンバー追加加入のお知らせ</span>
-    <span class="ticker-item">✦ 2026.05.24 夏のワンマンライブ 開催決定！</span>
-    <span class="ticker-item">✦ 2026.05.10 新曲「空色の約束」 MV 公開中</span>
-    <span class="ticker-item">✦ 2026.04.28 「彼シャツ」フォトブック 発売！</span>
-    <span class="ticker-item">✦ 2026.04.01 メンバー追加加入のお知らせ</span>
+    <span class="ticker-item">✦ 本日の出勤 星野そら・蒼井るな・白瀬みく</span>
+    <span class="ticker-item">✦ 営業時間 19:00〜LAST</span>
+    <span class="ticker-item">✦ 新キャスト「水瀬あお」出勤開始！</span>
+    <span class="ticker-item">✦ 女性・カップル大歓迎！</span>
+    <span class="ticker-item">✦ 本日の出勤 星野そら・蒼井るな・白瀬みく</span>
+    <span class="ticker-item">✦ 営業時間 19:00〜LAST</span>
+    <span class="ticker-item">✦ 新キャスト「水瀬あお」出勤開始！</span>
+    <span class="ticker-item">✦ 女性・カップル大歓迎！</span>
   </div>
 </div>
 
@@ -321,7 +322,7 @@
         font-weight:700;color:#fff;line-height:1.5;
         text-shadow:0 2px 20px rgba(0,0,0,.2);
         margin-bottom:1.5rem;
-      ">青空みたいに<span style="color:#C8EDFF;">まっすぐ</span>で、<br>彼シャツみたいに<span style="color:#C8EDFF;">近くに</span>いる</h2>
+      ">水色の空間で、<span style="color:#C8EDFF;">特別な</span>ひとときを。</h2>
 
       <div style="width:50px;height:1.5px;background:rgba(255,255,255,.5);margin:0 auto 2rem;"></div>
 
@@ -330,9 +331,10 @@
         letter-spacing:.05em;text-shadow:0 1px 8px rgba(0,0,0,.2);
         margin-bottom:2.5rem;
       ">
-        カレシャツ。は、「好き」という気持ちをテーマにしたアイドルグループです。<br>
-        メンバーが羽織る「彼シャツ」は、あなたへの想いのシンボル。<br>
-        透き通った水色の世界で、あなただけの特別な時間をお届けします。
+        カレシャツ。は、彼シャツをテーマにしたガールズバーです。<br>
+        大きめのシャツをふんわりと着こなしたキャストたちが、<br>
+        あなたのそばで特別な時間をお届けします。<br>
+        リーズナブルな価格で、癒しとときめきを。
       </p>
 
       <a href="#" style="
@@ -385,9 +387,184 @@
   <div style="text-align:center;margin-top:3rem"><a href="#" class="btn-primary">キャスト一覧を見る</a></div>
 </section>
 
+<!-- SCHEDULE -->
+<section style="padding:6rem 3rem;background:#fff">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem">
+      <span class="section-label">出勤スケジュール</span>
+      <h2 class="section-title">SCHEDULE</h2>
+      <div class="divider" style="margin:1.5rem auto 0"></div>
+    </div>
+
+    <!-- 日付タブ -->
+    <div class="reveal" style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;" id="date-tabs">
+      <button onclick="showDay(0)" id="tab-0" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid var(--sky-dark);background:var(--sky-dark);color:#fff;font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/24 土</button>
+      <button onclick="showDay(1)" id="tab-1" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid rgba(135,206,235,.5);background:transparent;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/25 日</button>
+      <button onclick="showDay(2)" id="tab-2" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid rgba(135,206,235,.5);background:transparent;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/26 月</button>
+      <button onclick="showDay(3)" id="tab-3" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid rgba(135,206,235,.5);background:transparent;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/27 火</button>
+      <button onclick="showDay(4)" id="tab-4" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid rgba(135,206,235,.5);background:transparent;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/28 水</button>
+      <button onclick="showDay(5)" id="tab-5" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid rgba(135,206,235,.5);background:transparent;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/29 木</button>
+      <button onclick="showDay(6)" id="tab-6" style="padding:.55rem 1.3rem;border-radius:999px;border:1.5px solid rgba(135,206,235,.5);background:transparent;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;cursor:pointer;font-family:inherit;">5/30 金</button>
+    </div>
+
+    <!-- 各日のキャストカード -->
+    <div id="schedule-day-0" class="schedule-day">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌸</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">星野 そら</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">⭐</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">白瀬 みく</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">20:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">💙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">水瀬 あお</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 23:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schedule-day-1" class="schedule-day" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">蒼井 るな</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">⭐</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">白瀬 みく</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">20:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">💙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">水瀬 あお</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schedule-day-2" class="schedule-day" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌸</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">星野 そら</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">蒼井 るな</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">20:00 〜 LAST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schedule-day-3" class="schedule-day" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">蒼井 るな</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">💙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">水瀬 あお</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 23:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schedule-day-4" class="schedule-day" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌸</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">星野 そら</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">20:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">💙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">水瀬 あお</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schedule-day-5" class="schedule-day" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">蒼井 るな</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">⭐</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">白瀬 みく</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">20:00 〜 LAST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="schedule-day-6" class="schedule-day" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:900px;margin:0 auto;">
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">🌸</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">星野 そら</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">⭐</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">白瀬 みく</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">19:00 〜 LAST</div>
+          </div>
+        </div>
+        <div style="background:var(--sky-pale);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(135,206,235,.3);">
+          <div style="aspect-ratio:1/1;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.5;">💙</div>
+          <div style="padding:.9rem 1rem;">
+            <div style="font-weight:700;font-size:.95rem;color:var(--text-dark);">水瀬 あお</div>
+            <div style="font-size:.8rem;color:var(--sky-dark);margin-top:.3rem;font-weight:700;">20:00 〜 LAST</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-<section class="gallery-section" style="padding:6rem 3rem">
+  </div>
+</section>
   <div style="max-width:1000px;margin:0 auto">
     <div class="reveal" style="text-align:center;margin-bottom:3rem">
       <span class="section-label">イベント</span>
@@ -453,17 +630,21 @@
   </div>
 </section>
 
+
+
 <section class="recruit-section" style="padding:6rem 3rem">
   <div class="reveal">
     <span class="section-label" style="display:block;text-align:center">リクルート</span>
     <h2 class="section-title" style="text-align:center">RECRUIT</h2>
   </div>
   <div class="recruit-box reveal">
-    <div class="recruit-title">✨ メンバー募集中！ ✨</div>
-    <p class="recruit-text">星空（ホシゾラ）では新メンバーを大募集中です！<br>アイドルが初めての方も大歓迎。<br>水色の世界で一緒に夢を追いかけましょう！</p>
+    <div class="recruit-title">✨ キャスト募集中！ ✨</div>
+    <p class="recruit-text">カレシャツ。では新キャストを大募集中です！<br>ナイトデビューも大歓迎♪<br>彼シャツを着て、あなたらしく輝いてみませんか？</p>
     <div class="recruit-points">
-      <span class="recruit-pt">未経験OK</span><span class="recruit-pt">レッスンサポートあり</span>
-      <span class="recruit-pt">ノルマなし</span><span class="recruit-pt">衣装貸与</span>
+      <span class="recruit-pt">未経験OK</span>
+      <span class="recruit-pt">日払いOK</span>
+      <span class="recruit-pt">無料送りあり</span>
+      <span class="recruit-pt">ノルマなし</span>
     </div>
     <a href="#" class="btn-primary">RECRUIT 詳細はこちら</a>
   </div>
@@ -475,7 +656,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-logo">カレシャツ<span>。</span></div>
-      <div class="footer-tagline">Sky Blue Idol Group</div>
+      <div class="footer-tagline">Girls Bar カレシャツ。</div>
       <div class="footer-sns">
         <a href="#" class="sns-btn">Tw</a>
         <a href="#" class="sns-btn">Ig</a>
@@ -484,12 +665,13 @@
       </div>
     </div>
     <nav class="footer-nav">
-      <a href="#">CONCEPT</a><a href="#">CAST</a><a href="#">EVENT</a>
-      <a href="#">RANKING</a><a href="#">RECRUIT</a>
+      <a href="#">CONCEPT</a><a href="#">CAST</a><a href="#">SCHEDULE</a>
+      <a href="#">EVENT</a><a href="#">RANKING</a><a href="#">RECRUIT</a>
     </nav>
     <div style="font-size:.8rem;opacity:.7;line-height:2;max-width:220px">
-      <p>📩 info@hoshizora-idol.jp</p>
-      <p>📞 03-XXXX-XXXX</p>
+      <p>📩 info@kareshatu.jp</p>
+      <p>📞 0X-XXXX-XXXX</p>
+      <p style="margin-top:.5rem;font-size:.75rem;opacity:.8;">営業時間 19:00〜LAST</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -499,6 +681,23 @@
 </footer>
 
 <script>
+function showDay(index) {
+  document.querySelectorAll('.schedule-day').forEach((el, i) => {
+    el.style.display = i === index ? 'block' : 'none';
+  });
+  for (let i = 0; i < 7; i++) {
+    const tab = document.getElementById('tab-' + i);
+    if (i === index) {
+      tab.style.background = 'var(--sky-dark)';
+      tab.style.color = '#fff';
+      tab.style.borderColor = 'var(--sky-dark)';
+    } else {
+      tab.style.background = 'transparent';
+      tab.style.color = 'var(--sky-dark)';
+      tab.style.borderColor = 'rgba(135,206,235,.5)';
+    }
+  }
+}
 const observer = new IntersectionObserver(entries => {
   entries.forEach((e, i) => {
     if(e.isIntersecting){
