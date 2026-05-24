@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カレシャツ。- Sky Blue Idol Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Zen+Kaku+Gothic+New:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --sky:#87CEEB;--sky-light:#C8E9F7;--sky-pale:#E8F6FD;--sky-deep:#5BB8E0;
+    --sky-dark:#2A8CB8;--white:#ffffff;--soft:#F0F9FF;
+    --text-dark:#1a3a4a;--text-mid:#4a7a8a;--text-light:#7aaabb;
+    --accent:#FFD6E7;--accent2:#FFF0A0;
+  }
+  body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--soft);color:var(--text-dark);overflow-x:hidden}
+
+  header{
+    position:fixed;top:0;width:100%;z-index:999;
+    background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(135,206,235,0.3);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 3rem;height:64px;
+  }
+  .logo{font-size:1.3rem;font-weight:900;letter-spacing:.15em;color:var(--sky-dark)}
+  .logo span{color:var(--sky)}
+  nav a{
+    text-decoration:none;color:var(--text-mid);font-size:.8rem;letter-spacing:.15em;
+    margin-left:2rem;transition:color .2s;padding-bottom:2px;border-bottom:1px solid transparent
+  }
+  nav a:hover{color:var(--sky-dark);border-bottom-color:var(--sky)}
+
+  .hero{
+    height:100vh;background:linear-gradient(160deg,#C8EDFF 0%,#E0F5FF 40%,#F8FCFF 70%,#fff 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;position:relative;overflow:hidden;padding-top:64px;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;
+    background:radial-gradient(circle,rgba(135,206,235,.35) 0%,transparent 70%);
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-60px;left:-60px;width:400px;height:400px;
+    background:radial-gradient(circle,rgba(91,184,224,.25) 0%,transparent 70%);
+  }
+  .bubbles{position:absolute;inset:0;pointer-events:none}
+  .bubble{
+    position:absolute;border-radius:50%;
+    background:rgba(135,206,235,0.15);border:1px solid rgba(135,206,235,0.3);
+    animation:float 6s ease-in-out infinite;
+  }
+  .bubble:nth-child(1){width:80px;height:80px;top:15%;left:10%;animation-delay:0s}
+  .bubble:nth-child(2){width:50px;height:50px;top:30%;right:15%;animation-delay:1.5s}
+  .bubble:nth-child(3){width:120px;height:120px;top:60%;left:5%;animation-delay:3s}
+  .bubble:nth-child(4){width:40px;height:40px;top:20%;left:50%;animation-delay:.8s}
+  .bubble:nth-child(5){width:70px;height:70px;bottom:20%;right:8%;animation-delay:2s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+  .hero-badge{
+    font-size:.7rem;letter-spacing:.3em;color:var(--sky-dark);
+    background:rgba(135,206,235,.2);border:1px solid rgba(135,206,235,.5);
+    padding:.4rem 1.2rem;border-radius:999px;margin-bottom:1.5rem;
+    animation:fadeUp .8s ease both;
+  }
+  .hero-name{
+    font-family:'Noto Serif JP',serif;font-size:clamp(3rem,8vw,6rem);
+    font-weight:700;line-height:1.1;
+    background:linear-gradient(135deg,var(--sky-dark) 0%,var(--sky) 50%,var(--sky-deep) 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    animation:fadeUp .8s ease .2s both;letter-spacing:-.02em;
+  }
+  .hero-sub{
+    font-size:1rem;letter-spacing:.3em;color:var(--text-mid);margin-top:.8rem;
+    animation:fadeUp .8s ease .4s both;
+  }
+  .hero-shirt{
+    margin:2rem auto 0;font-size:.85rem;color:var(--text-light);letter-spacing:.1em;
+    animation:fadeUp .8s ease .6s both;
+    display:flex;align-items:center;gap:.5rem;
+  }
+  .hero-shirt::before,.hero-shirt::after{content:'';flex:1;height:1px;background:rgba(135,206,235,.4)}
+  .hero-btns{display:flex;gap:1rem;margin-top:2.5rem;animation:fadeUp .8s ease .8s both}
+  .btn-primary{
+    background:var(--sky-dark);color:#fff;padding:.8rem 2.2rem;
+    border-radius:999px;text-decoration:none;font-size:.85rem;letter-spacing:.15em;
+    transition:transform .2s,box-shadow .2s;border:none;cursor:pointer;
+    box-shadow:0 4px 20px rgba(42,140,184,.3)
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(42,140,184,.4)}
+  .btn-outline{
+    background:transparent;color:var(--sky-dark);padding:.8rem 2.2rem;
+    border-radius:999px;text-decoration:none;font-size:.85rem;letter-spacing:.15em;
+    border:1.5px solid var(--sky-deep);transition:transform .2s,background .2s;cursor:pointer
+  }
+  .btn-outline:hover{background:rgba(135,206,235,.15);transform:translateY(-2px)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+  .ticker{
+    background:var(--sky-dark);color:#fff;padding:.6rem 0;
+    font-size:.78rem;letter-spacing:.1em;overflow:hidden;white-space:nowrap;
+  }
+  .ticker-inner{display:inline-block;animation:ticker 30s linear infinite}
+  .ticker-item{display:inline-block;padding:0 3rem}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  section{padding:6rem 2rem}
+  .section-label{
+    font-size:.7rem;letter-spacing:.4em;color:var(--sky-deep);text-transform:uppercase;
+    display:block;margin-bottom:.5rem;
+  }
+  .section-title{
+    font-family:'Noto Serif JP',serif;font-size:clamp(1.8rem,4vw,2.8rem);
+    font-weight:700;color:var(--text-dark);line-height:1.2;
+  }
+  .section-title em{color:var(--sky-dark);font-style:normal}
+  .divider{
+    width:60px;height:2px;background:linear-gradient(90deg,var(--sky),var(--sky-deep));
+    margin:1.5rem 0 2.5rem;
+  }
+
+  .concept{background:#fff;display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;gap:5rem;align-items:center}
+  .concept-img{
+    aspect-ratio:4/5;background:linear-gradient(145deg,var(--sky-light) 0%,var(--sky-pale) 100%);
+    border-radius:2rem;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .concept-img .shirt-icon{font-size:6rem;opacity:.4}
+  .concept-img::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+    background:linear-gradient(to top,rgba(135,206,235,.3),transparent);
+  }
+  .concept-tag{
+    display:inline-block;background:var(--sky-pale);color:var(--sky-dark);
+    font-size:.75rem;letter-spacing:.15em;padding:.3rem .9rem;
+    border-radius:999px;margin-bottom:1.5rem;border:1px solid rgba(91,184,224,.3);
+  }
+  .concept-text{font-size:.95rem;line-height:2;color:var(--text-mid)}
+
+  .cast-section{background:var(--sky-pale)}
+  .cast-header{text-align:center;margin-bottom:4rem}
+  .cast-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:2rem;max-width:1000px;margin:0 auto;
+  }
+  .cast-card{
+    background:#fff;border-radius:1.5rem;overflow:hidden;
+    transition:transform .3s,box-shadow .3s;cursor:pointer;
+  }
+  .cast-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(135,206,235,.4)}
+  .cast-img{
+    aspect-ratio:3/4;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  .cast-img .avatar{font-size:4rem;opacity:.5}
+  .cast-img::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+    background:linear-gradient(to top,rgba(42,140,184,.15),transparent);
+  }
+  .cast-info{padding:1.2rem}
+  .cast-name{font-size:1.1rem;font-weight:700;color:var(--text-dark)}
+  .cast-pos{font-size:.75rem;color:var(--text-light);letter-spacing:.1em;margin-top:.2rem}
+  .cast-tags{display:flex;gap:.4rem;margin-top:.8rem;flex-wrap:wrap}
+  .cast-tag{
+    font-size:.65rem;padding:.2rem .7rem;border-radius:999px;letter-spacing:.05em;
+    background:var(--sky-pale);color:var(--sky-dark);border:1px solid rgba(91,184,224,.3)
+  }
+
+  .news-section{background:#fff;max-width:900px;margin:0 auto}
+  .news-list{border-top:1px solid rgba(135,206,235,.3)}
+  .news-item{
+    display:flex;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(135,206,235,.2);
+    align-items:baseline;transition:background .2s;cursor:pointer;
+  }
+  .news-item:hover{background:rgba(200,233,247,.15)}
+  .news-date{font-size:.75rem;color:var(--text-light);letter-spacing:.1em;min-width:90px;font-family:'Noto Serif JP',serif;}
+  .news-cat{
+    font-size:.65rem;letter-spacing:.1em;padding:.2rem .8rem;
+    background:var(--sky-pale);color:var(--sky-dark);border-radius:999px;
+    border:1px solid rgba(91,184,224,.3);min-width:60px;text-align:center;
+  }
+  .news-title{font-size:.9rem;color:var(--text-dark);flex:1;line-height:1.5}
+
+  .system-section{background:linear-gradient(160deg,var(--sky-pale),#fff)}
+  .system-cards{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1.5rem;max-width:1000px;margin:3rem auto 0;
+  }
+  .sys-card{background:#fff;border-radius:1.2rem;padding:2rem;border:1px solid rgba(135,206,235,.3);}
+  .sys-icon{width:48px;height:48px;background:var(--sky-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1rem;color:var(--sky-dark)}
+  .sys-label{font-size:.7rem;letter-spacing:.2em;color:var(--text-light);margin-bottom:.3rem}
+  .sys-val{font-size:1.5rem;font-weight:900;color:var(--sky-dark)}
+  .sys-note{font-size:.8rem;color:var(--text-mid);margin-top:.5rem;line-height:1.6}
+
+  .gallery-section{background:var(--sky-pale)}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;
+    gap:1rem;max-width:1000px;margin:3rem auto 0;
+  }
+  .gallery-item{
+    background:linear-gradient(145deg,var(--sky-light),var(--sky-pale));
+    border-radius:1rem;overflow:hidden;cursor:pointer;position:relative;transition:transform .3s;
+  }
+  .gallery-item:hover{transform:scale(1.02)}
+  .gallery-item:first-child{grid-column:span 2;grid-row:span 2;border-radius:1.5rem}
+  .gallery-item .inner{width:100%;padding-top:75%;position:relative;display:flex;align-items:center;justify-content:center;}
+  .gallery-item:first-child .inner{padding-top:100%}
+  .gallery-caption{
+    position:absolute;inset:0;background:rgba(42,140,184,0);
+    display:flex;align-items:flex-end;padding:1rem;transition:background .3s;
+  }
+  .gallery-item:hover .gallery-caption{background:rgba(42,140,184,.25)}
+  .gallery-caption span{font-size:.75rem;letter-spacing:.1em;color:#fff;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;}
+  .gallery-item:hover .gallery-caption span{opacity:1;transform:translateY(0)}
+  .gallery-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.5rem;opacity:.25;pointer-events:none;}
+  .gallery-item:first-child .gallery-label{font-size:3rem}
+
+  .recruit-section{background:#fff;text-align:center}
+  .recruit-box{
+    max-width:700px;margin:3rem auto 0;
+    background:linear-gradient(135deg,var(--sky-light) 0%,#E0F5FF 100%);
+    border-radius:2rem;padding:4rem 3rem;position:relative;overflow:hidden;
+  }
+  .recruit-box::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.3);border-radius:50%;}
+  .recruit-title{font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:700;color:var(--sky-dark);margin-bottom:1rem;}
+  .recruit-text{font-size:.9rem;line-height:2;color:var(--text-mid);margin-bottom:2rem}
+  .recruit-points{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+  .recruit-pt{background:#fff;color:var(--sky-dark);font-size:.8rem;letter-spacing:.1em;padding:.5rem 1.2rem;border-radius:999px;font-weight:700;box-shadow:0 2px 12px rgba(135,206,235,.3)}
+
+  .access-section{background:var(--sky-pale)}
+  .access-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+  .access-map{aspect-ratio:1;background:linear-gradient(145deg,var(--sky-light),var(--sky-pale));border-radius:1.5rem;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.4;}
+  .access-info dt{font-size:.72rem;letter-spacing:.2em;color:var(--text-light);margin-top:1.5rem;margin-bottom:.3rem}
+  .access-info dd{font-size:.9rem;color:var(--text-dark);line-height:1.7}
+  .access-info dd a{color:var(--sky-dark);text-decoration:none}
+
+  footer{background:var(--sky-dark);color:#fff;padding:4rem 3rem 2rem;}
+  .footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap}
+  .footer-logo{font-size:1.5rem;font-weight:900;letter-spacing:.15em}
+  .footer-logo span{opacity:.6}
+  .footer-tagline{font-size:.8rem;opacity:.6;margin-top:.4rem;letter-spacing:.1em}
+  .footer-nav{display:flex;flex-direction:column;gap:.6rem}
+  .footer-nav a{text-decoration:none;color:rgba(255,255,255,.7);font-size:.8rem;letter-spacing:.15em;transition:color .2s}
+  .footer-nav a:hover{color:#fff}
+  .footer-sns{display:flex;gap:1rem;margin-top:1rem}
+  .sns-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-size:.75rem;transition:background .2s;}
+  .sns-btn:hover{background:rgba(255,255,255,.3)}
+  .footer-bottom{max-width:1000px;margin:3rem auto 0;border-top:1px solid rgba(255,255,255,.15);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:.72rem;opacity:.5;letter-spacing:.1em;flex-wrap:wrap;gap:.5rem}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+  .revealed{opacity:1;transform:none}
+  .shirt-deco{display:inline-block;font-size:1.2rem;margin:0 .3rem;animation:shirt-float 3s ease-in-out infinite;}
+  @keyframes shirt-float{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">カレシャツ<span>。</span></div>
+  <nav>
+    <a href="#">CONCEPT</a>
+    <a href="#">CAST</a>
+    <a href="#">EVENT</a>
+    <a href="#">RANKING</a>
+    <a href="#">RECRUIT</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="bubbles">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div>
+  </div>
+  <h1 class="hero-name">カレシャツ。</h1>
+  <p class="hero-sub">カレシャツ。Official Fan Site</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-primary">CAST を見る</a>
+    <a href="#" class="btn-outline">NEWS</a>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">✦ 2026.05.24 夏のワンマンライブ 開催決定！</span>
+    <span class="ticker-item">✦ 2026.05.10 新曲「空色の約束」 MV 公開中</span>
+    <span class="ticker-item">✦ 2026.04.28 「彼シャツ」フォトブック 発売！</span>
+    <span class="ticker-item">✦ 2026.04.01 メンバー追加加入のお知らせ</span>
+    <span class="ticker-item">✦ 2026.05.24 夏のワンマンライブ 開催決定！</span>
+    <span class="ticker-item">✦ 2026.05.10 新曲「空色の約束」 MV 公開中</span>
+    <span class="ticker-item">✦ 2026.04.28 「彼シャツ」フォトブック 発売！</span>
+    <span class="ticker-item">✦ 2026.04.01 メンバー追加加入のお知らせ</span>
+  </div>
+</div>
+
+<section style="padding:0;margin:0;position:relative;overflow:hidden;">
+  <!-- 背景画像エリア（実際の画像は background-image で差し替えてください） -->
+  <div style="
+    width:100%;
+    min-height:90vh;
+    background:linear-gradient(160deg,#C8EDFF 0%,#87CEEB 40%,#5BB8E0 100%);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  ">
+    <!-- 画像プレースホルダー（実装時は background-image:url('your-image.jpg'); background-size:cover; background-position:center; に変更） -->
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:8rem;opacity:.15;">👕</div>
+
+    <!-- オーバーレイ（画像を入れた際は濃さを調整） -->
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,140,184,.55) 0%,rgba(10,60,90,.45) 100%);"></div>
+
+    <!-- テキストコンテンツ -->
+    <div class="reveal" style="position:relative;z-index:2;text-align:center;padding:6rem 2rem;max-width:800px;">
+      <span style="
+        display:inline-block;font-size:.72rem;letter-spacing:.45em;color:rgba(255,255,255,.8);
+        border:1px solid rgba(255,255,255,.4);padding:.4rem 1.4rem;border-radius:999px;margin-bottom:2rem;
+      ">CONCEPT</span>
+
+      <h2 style="
+        font-family:'Noto Serif JP',serif;
+        font-size:clamp(1.8rem,4vw,3.2rem);
+        font-weight:700;color:#fff;line-height:1.5;
+        text-shadow:0 2px 20px rgba(0,0,0,.2);
+        margin-bottom:1.5rem;
+      ">青空みたいに<span style="color:#C8EDFF;">まっすぐ</span>で、<br>彼シャツみたいに<span style="color:#C8EDFF;">近くに</span>いる</h2>
+
+      <div style="width:50px;height:1.5px;background:rgba(255,255,255,.5);margin:0 auto 2rem;"></div>
+
+      <p style="
+        font-size:.95rem;line-height:2.2;color:rgba(255,255,255,.88);
+        letter-spacing:.05em;text-shadow:0 1px 8px rgba(0,0,0,.2);
+        margin-bottom:2.5rem;
+      ">
+        カレシャツ。は、「好き」という気持ちをテーマにしたアイドルグループです。<br>
+        メンバーが羽織る「彼シャツ」は、あなたへの想いのシンボル。<br>
+        透き通った水色の世界で、あなただけの特別な時間をお届けします。
+      </p>
+
+      <a href="#" style="
+        display:inline-block;background:rgba(255,255,255,.15);color:#fff;
+        padding:.85rem 2.4rem;border-radius:999px;text-decoration:none;
+        font-size:.85rem;letter-spacing:.2em;
+        border:1.5px solid rgba(255,255,255,.5);
+        transition:background .2s;
+      " onmouseover="this.style.background='rgba(255,255,255,.28)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">もっと見る →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cast-section" style="padding:6rem 3rem">
+  <div class="cast-header reveal">
+    <span class="section-label">キャスト</span>
+    <h2 class="section-title">CAST <em>MEMBER</em></h2>
+    <div class="divider" style="margin:1.5rem auto 0"></div>
+  </div>
+  <div class="cast-grid">
+    <div class="cast-card reveal">
+      <div class="cast-img"><span class="avatar">🌸</span></div>
+      <div class="cast-info">
+        <div class="cast-name">星野 そら <span style="font-size:.85rem;font-weight:400;color:var(--text-light)">(22)</span></div>
+        <div class="cast-pos">158cm / B83 W58 H85</div>
+      </div>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-img"><span class="avatar">🌙</span></div>
+      <div class="cast-info">
+        <div class="cast-name">蒼井 るな <span style="font-size:.85rem;font-weight:400;color:var(--text-light)">(20)</span></div>
+        <div class="cast-pos">162cm / B80 W55 H82</div>
+      </div>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-img"><span class="avatar">⭐</span></div>
+      <div class="cast-info">
+        <div class="cast-name">白瀬 みく <span style="font-size:.85rem;font-weight:400;color:var(--text-light)">(19)</span></div>
+        <div class="cast-pos">155cm / B79 W54 H80</div>
+      </div>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-img"><span class="avatar">💙</span></div>
+      <div class="cast-info">
+        <div class="cast-name">水瀬 あお <span style="font-size:.85rem;font-weight:400;color:var(--text-light)">(21)</span></div>
+        <div class="cast-pos">160cm / B82 W57 H83</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem"><a href="#" class="btn-primary">キャスト一覧を見る</a></div>
+</section>
+
+
+
+<section class="gallery-section" style="padding:6rem 3rem">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem">
+      <span class="section-label">イベント</span>
+      <h2 class="section-title">EVENT</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><div class="inner"></div><div class="gallery-caption"><span>👕 彼シャツ グラビア</span></div><span class="gallery-label">📷</span></div>
+      <div class="gallery-item"><div class="inner"></div><div class="gallery-caption"><span>🌸 ライブ写真</span></div><span class="gallery-label">🎵</span></div>
+      <div class="gallery-item"><div class="inner"></div><div class="gallery-caption"><span>⭐ オフショット</span></div><span class="gallery-label">😊</span></div>
+      <div class="gallery-item"><div class="inner"></div><div class="gallery-caption"><span>💙 衣装特集</span></div><span class="gallery-label">👗</span></div>
+      <div class="gallery-item"><div class="inner"></div><div class="gallery-caption"><span>🌙 メイキング</span></div><span class="gallery-label">🎬</span></div>
+    </div>
+    <div style="text-align:center;margin-top:3rem"><a href="#" class="btn-primary">EVENT 一覧を見る</a></div>
+  </div>
+</section>
+
+<section style="padding:6rem 3rem;background:#fff">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label">人気投票</span>
+      <h2 class="section-title">RANKING</h2>
+      <div class="divider" style="margin:1.5rem auto 3rem"></div>
+    </div>
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;">
+
+      <!-- 1位 -->
+      <div style="position:relative;border-radius:1.2rem;overflow:hidden;cursor:pointer;transition:transform .3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#FFF3C0,#FFE680);display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.4;">🌸</div>
+        <div style="position:absolute;top:.8rem;left:.8rem;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#FFD700,#FFA500);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;box-shadow:0 3px 10px rgba(255,180,0,.5);">1</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:.9rem;background:linear-gradient(to top,rgba(20,20,20,.7) 0%,transparent 100%);">
+          <div style="color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.05em;">星野 そら</div>
+        </div>
+      </div>
+
+      <!-- 2位 -->
+      <div style="position:relative;border-radius:1.2rem;overflow:hidden;cursor:pointer;transition:transform .3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#E8E8E8,#D0D0D0);display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.4;">🌙</div>
+        <div style="position:absolute;top:.8rem;left:.8rem;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#C0C0C0,#909090);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;box-shadow:0 3px 10px rgba(150,150,150,.5);">2</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:.9rem;background:linear-gradient(to top,rgba(20,20,20,.7) 0%,transparent 100%);">
+          <div style="color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.05em;">蒼井 るな</div>
+        </div>
+      </div>
+
+      <!-- 3位 -->
+      <div style="position:relative;border-radius:1.2rem;overflow:hidden;cursor:pointer;transition:transform .3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#F5E0CC,#EBC9AA);display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.4;">⭐</div>
+        <div style="position:absolute;top:.8rem;left:.8rem;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#CD7F32,#A0522D);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;box-shadow:0 3px 10px rgba(180,100,50,.5);">3</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:.9rem;background:linear-gradient(to top,rgba(20,20,20,.7) 0%,transparent 100%);">
+          <div style="color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.05em;">白瀬 みく</div>
+        </div>
+      </div>
+
+      <!-- 4位 -->
+      <div style="position:relative;border-radius:1.2rem;overflow:hidden;cursor:pointer;transition:transform .3s;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="aspect-ratio:3/4;background:linear-gradient(160deg,var(--sky-light),var(--sky-pale));display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.4;">💙</div>
+        <div style="position:absolute;top:.8rem;left:.8rem;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--sky-dark));display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;box-shadow:0 3px 10px rgba(42,140,184,.5);">4</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:.9rem;background:linear-gradient(to top,rgba(20,20,20,.7) 0%,transparent 100%);">
+          <div style="color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.05em;">水瀬 あお</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="recruit-section" style="padding:6rem 3rem">
+  <div class="reveal">
+    <span class="section-label" style="display:block;text-align:center">リクルート</span>
+    <h2 class="section-title" style="text-align:center">RECRUIT</h2>
+  </div>
+  <div class="recruit-box reveal">
+    <div class="recruit-title">✨ メンバー募集中！ ✨</div>
+    <p class="recruit-text">星空（ホシゾラ）では新メンバーを大募集中です！<br>アイドルが初めての方も大歓迎。<br>水色の世界で一緒に夢を追いかけましょう！</p>
+    <div class="recruit-points">
+      <span class="recruit-pt">未経験OK</span><span class="recruit-pt">レッスンサポートあり</span>
+      <span class="recruit-pt">ノルマなし</span><span class="recruit-pt">衣装貸与</span>
+    </div>
+    <a href="#" class="btn-primary">RECRUIT 詳細はこちら</a>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">カレシャツ<span>。</span></div>
+      <div class="footer-tagline">Sky Blue Idol Group</div>
+      <div class="footer-sns">
+        <a href="#" class="sns-btn">Tw</a>
+        <a href="#" class="sns-btn">Ig</a>
+        <a href="#" class="sns-btn">TT</a>
+        <a href="#" class="sns-btn">YT</a>
+      </div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#">CONCEPT</a><a href="#">CAST</a><a href="#">EVENT</a>
+      <a href="#">RANKING</a><a href="#">RECRUIT</a>
+    </nav>
+    <div style="font-size:.8rem;opacity:.7;line-height:2;max-width:220px">
+      <p>📩 info@hoshizora-idol.jp</p>
+      <p>📞 03-XXXX-XXXX</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 カレシャツ。All rights reserved.</span>
+    <span>プライバシーポリシー ｜ 特定商取引法</span>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('revealed'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
